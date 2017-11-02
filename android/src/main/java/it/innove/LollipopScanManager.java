@@ -37,7 +37,7 @@ public class LollipopScanManager extends ScanManager {
 
 	@Override
 	public void scan(ReadableArray serviceUUIDs, final int scanSeconds, Callback callback) {
-		ScanSettings settings = new ScanSettings.Builder().build();
+		ScanSettings settings = new ScanSettings.Builder().setScanMode(ScanSettings.SCAN_MODE_LOW_LATENCY).build();
 		List<ScanFilter> filters = new ArrayList<>();
 
 		if (serviceUUIDs.size() > 0) {
