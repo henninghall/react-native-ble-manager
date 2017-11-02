@@ -13,11 +13,21 @@
     NSMutableDictionary *notificationCallbacks;
     NSMutableDictionary *stopNotificationCallbacks;
     NSMutableDictionary *connectCallbackLatches;
+    
 }
 
 @property (strong, nonatomic) NSMutableSet *peripherals;
 @property (strong, nonatomic) CBCentralManager *manager;
 @property (weak, nonatomic) NSTimer *scanTimer;
 
+// Returns the static CBCentralManager instance used by this library.
+// May have unexpected behavior when using multiple instances of CBCentralManager.
+// For integration with external libraries, advanced use only.
++(CBCentralManager *)getCentralManager;
+
+// Returns the singleton instance of this class initiated by RN.
+// For integration with external libraries, advanced use only.
++(BleManager *)getInstance;
 
 @end
+
